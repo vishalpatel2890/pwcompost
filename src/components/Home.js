@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './assets/logo.jpg';
-import './App.css';
+import '../App.css';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 import Drawer from 'material-ui/Drawer';
@@ -37,7 +36,7 @@ const buttonStyle = {
 
 
 
-class App extends Component {
+class Home extends Component {
 
   constructor(props) {
   super(props);
@@ -50,24 +49,9 @@ class App extends Component {
   render() {
     return (
 
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-
-        </div>
-      <div>
-
-      </div>
+    <div>
         <Default>
           <div>
-            <p className="App-intro">
-              <FlatButton label="Home" labelStyle={{fontSize:20}}  style={buttonStyle} hoverColor="#7aca45" rippleColor="#2c9ee7"/>
-              <FlatButton label="About" labelStyle={{fontSize:20}} style={buttonStyle} hoverColor="#7aca45" rippleColor="#2c9ee7"/>
-              <FlatButton label="Service" labelStyle={{fontSize:20}} style={buttonStyle} hoverColor="#7aca45" rippleColor="#2c9ee7"/>
-              <FlatButton label="Sign Up" labelStyle={{fontSize:20}} style={buttonStyle} hoverColor="#7aca45" rippleColor="#2c9ee7"/>
-              <FlatButton label="Blog" labelStyle={{fontSize:20}} style={buttonStyle} hoverColor="#7aca45" rippleColor="#2c9ee7"/>
-              <FlatButton label="Account" labelStyle={{fontSize:20}} style={buttonStyle} hoverColor="#7aca45" rippleColor="#2c9ee7"/>
-            </p>
             <div className="background">
               <div className="content-cell1">
                 <div className="title">Peels & Wheels<br/>  Compost</div>
@@ -124,6 +108,7 @@ class App extends Component {
         <div>
         </div>
         </Default>
+
         <Mobile>
           <div>
             <RaisedButton
@@ -156,11 +141,11 @@ class App extends Component {
           </div>
 
         </Mobile>
-
       </div>
 
+  
     );
   }
 }
 
-export default App;
+export default Home;
