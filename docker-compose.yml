@@ -1,10 +1,15 @@
 version: '2'
+
 services:
 
-  app:
+  web:
     build:
       context: .
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - 3000:3000
+    restart: on-failure
     volumes:
-      - .:/usr/src/app
+      - ./:/pwcompost
+    environment:
+      - NODE_ENV=production
