@@ -1,6 +1,4 @@
-import { combineReducers } from 'redux';
-import { recipe, steps } from './recipes';
+import { combineReducers } from "redux";
+import { recipe, steps } from "./recipes";
 
-export default combineReducers({
-
-});
+export default combineReducers({});

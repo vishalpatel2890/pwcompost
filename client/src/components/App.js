@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
-import Header from './Header'
-import Main from './Main'
-import '../App.css'
+import React, { Component } from "react";
+import Header from "./Header";
+import Main from "./Main";
+import "../App.css";
 
 class App extends Component {
   render() {
-    return(
+    return (
       <div>
-      <div>
-        <Header />
+        <div>
+          <Header />
+        </div>
+        <div>
+          <Main />
+        </div>
       </div>
-
-      <div>
-        <Main />
-      </div>
-    </div>
     );
   }
 }
 
-export default App
+export default App;

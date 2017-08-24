@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 
 .App-logo {
@@ -20,55 +19,57 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .background {
   background-image: url(https://maxpull-gdvuch3veo.netdna-ssl.com/wp-content/uploads/2014/05/compost-pile.jpg);
   text-align: left;
   display: table;
-  width:100%;
+  width: 100%;
 }
 
 .menu-button {
-  color : #2c9ee7 !important;
+  color: #2c9ee7 !important;
 }
 
 .title {
-	font-family: Amaranth;
-	font-size: 80px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: bold;
-	line-height: 80px;
+  font-family: Amaranth;
+  font-size: 80px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 80px;
   margin-left: 50px;
   color: #5c5143;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .subtitle {
-	font-family: Amaranth;
-	font-size: 40px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	line-height: 40px;
+  font-family: Amaranth;
+  font-size: 40px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 40px;
   margin-left: 50px;
   color: #5c5143;
   text-shadow: -.5px 0 white, 0 .5px white, .5px 0 white, 0 -.5px white;
 }
 
-.content-boxes{
+.content-boxes {
   display: inline !important;
 }
 
-.content-cell1{
+.content-cell1 {
   display: table-cell;
-
 }
 
-.content-cell2{
+.content-cell2 {
   display: table-cell;
-
 }
