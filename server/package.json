@@ -1,0 +1,27 @@
+{
+  "name": "compost-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha -S --ui bdd --require ./tests/spec_helper.js --recursive ./tests --reporter spec"
+  },
+  "author": "Brian Bier",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^7.2.1",
+    "jwt-simple": "^0.5.1",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.7.7",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0"
+  }
+}
