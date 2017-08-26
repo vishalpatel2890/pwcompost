@@ -1,24 +1,39 @@
-var JwtStrategy = require("passport-jwt").Strategy;
+const passport = require('passport')
+const GoogleStrategy = require('passport-google-oauth20').Strategy
+const mongoose = require('mongoose')
+const keys = require('../config/keys')
 
-// load up the user model
-var User = require("../app/models/user");
-var config = require("../config/database"); // get db config file
+const User = mongoose.model('users')
 
-module.exports = function(passport) {
-  var opts = {};
-  opts.secretOrKey = config.secret;
-  passport.use(
-    new JwtStrategy(opts, function(jwt_payload, done) {
-      User.findOne({ id: jwt_payload.id }, function(err, user) {
-        if (err) {
-          return done(err, false);
-        }
-        if (user) {
-          done(null, user);
+passport.serializeUser((user, done) => {
+  done(null, user.id)
+})
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user)
+  })
+})
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: keys.googleClientID,
+      clientSecret: keys.googleClientSecret,
+      callbackURL: '/auth/google/callback'
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ googleId: profile.id }).then(existingUser => {
+        if (existingUser) {
+          // we already have a record with the given profile ID
+          done(null, existingUser)
         } else {
-          done(null, false);
+          // we don't have a user record with this ID, make a new record!
+          new User({ googleId: profile.id })
+            .save()
+            .then(user => done(null, user))
         }
-      });
-    })
-  );
-};
+      })
+    }
+  )
+)
