@@ -1,52 +1,52 @@
-import React, { Component } from "react";
-import "../App.css";
-import FlatButton from "material-ui/FlatButton";
-import Paper from "material-ui/Paper";
-import Drawer from "material-ui/Drawer";
-import MenuItem from "material-ui/MenuItem";
-import FontIcon from "material-ui/FontIcon";
-import RaisedButton from "material-ui/RaisedButton";
+import React, { Component } from 'react'
+import '../App.css'
+import FlatButton from 'material-ui/FlatButton'
+import Paper from 'material-ui/Paper'
+import Drawer from 'material-ui/Drawer'
+import MenuItem from 'material-ui/MenuItem'
+import FontIcon from 'material-ui/FontIcon'
+import RaisedButton from 'material-ui/RaisedButton'
 import {
   BottomNavigation,
   BottomNavigationItem
-} from "material-ui/BottomNavigation";
-import IconLocationOn from "material-ui/svg-icons/communication/location-on";
-import IconContactMail from "material-ui/svg-icons/communication/contact-mail";
-import ActionAccountCircle from "material-ui/svg-icons/action/account-circle";
-import ContentGesture from "material-ui/svg-icons/content/gesture";
-import Responsive from "react-responsive";
+} from 'material-ui/BottomNavigation'
+import IconLocationOn from 'material-ui/svg-icons/communication/location-on'
+import IconContactMail from 'material-ui/svg-icons/communication/contact-mail'
+import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle'
+import ContentGesture from 'material-ui/svg-icons/content/gesture'
+import Responsive from 'react-responsive'
 
 const Default = ({ children }) =>
-  <Responsive minWidth={500} children={children} />;
+  <Responsive minWidth={500} children={children} />
 const Mobile = ({ children }) =>
-  <Responsive maxWidth={500} children={children} />;
+  <Responsive maxWidth={500} children={children} />
 
-const nearbyIcon = <IconLocationOn />;
-const accountCircle = <ActionAccountCircle />;
-const contact = <IconContactMail />;
-const blog = <ContentGesture />;
+const nearbyIcon = <IconLocationOn />
+const accountCircle = <ActionAccountCircle />
+const contact = <IconContactMail />
+const blog = <ContentGesture />
 
 const paperStyle1 = {
-  backgroundColor: "rgba(255, 255, 255, 0.75)",
+  backgroundColor: 'rgba(255, 255, 255, 0.75)',
   marginLeft: 50,
   marginRight: 0,
   width: 400,
-  display: "flex"
-};
+  display: 'flex'
+}
 
 const buttonStyle = {
-  color: "#2c9ee7",
+  color: '#2c9ee7',
   fontSize: 20
-};
+}
 
 class Home extends Component {
   constructor(props) {
-    super(props);
-    this.state = { open: false };
+    super(props)
+    this.state = { open: false }
   }
 
-  handleToggle = () => this.setState({ open: !this.state.open });
-  handleClose = () => this.setState({ open: false });
+  handleToggle = () => this.setState({ open: !this.state.open })
+  handleClose = () => this.setState({ open: false })
 
   render() {
     return (
@@ -88,13 +88,6 @@ class Home extends Component {
                 <br />
               </div>
             </div>
-            <Paper zdepth={1}>
-              <BottomNavigation>
-                <BottomNavigationItem label="Accout" icon={accountCircle} />
-                <BottomNavigationItem label="Blog" icon={blog} />
-                <BottomNavigationItem label="Contact Us" icon={contact} />
-              </BottomNavigation>
-            </Paper>
           </div>
           <div />
         </Default>
@@ -126,8 +119,8 @@ class Home extends Component {
           </div>
         </Mobile>
       </div>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home
