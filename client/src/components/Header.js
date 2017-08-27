@@ -3,7 +3,7 @@ import logo from '../assets/logo.jpg'
 import '../App.css'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar'
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar'
 import Responsive from 'react-responsive'
 import { Link } from 'react-router-dom'
 
@@ -30,18 +30,25 @@ export default class ToolbarExamplesSimple extends React.Component {
         </div>
         <div>
           <Toolbar>
+            <ToolbarTitle text="Peels & Wheels" />
             <ToolbarGroup firstChild={true}>
               <FlatButton
                 containerElement={<Link to="/" />}
-                linkButton={true}
+                // linkButton={true}
                 label="Home"
               />
               <RaisedButton
                 containerElement={<Link to="/signup" />}
-                linkButton={true}
+                // linkButton={true}
                 label="Sign Up"
               />
+              <FlatButton
+                containerElement={<Link to="/" />}
+                // linkButton={true}
+                label="Home"
+              />
             </ToolbarGroup>
+            <ToolbarGroup />
             <ToolbarGroup />
           </Toolbar>
         </div>

@@ -3,8 +3,14 @@ import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
 import '../App.css'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser()
+  }
+
   render() {
     return (
       <div>
@@ -22,4 +28,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default connect(null, actions)(App)

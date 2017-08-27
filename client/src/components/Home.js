@@ -99,7 +99,6 @@ class Home extends Component {
               labelColor="#2c9ee7"
               onClick={this.handleToggle}
               hoverStyle="#7aca45"
-              rippleStyle="#2c9ee7"
             />
             <Drawer
               docked={false}

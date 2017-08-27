@@ -44,7 +44,7 @@ class Footer extends Component {
       <div>
         <Default>
           <div>
-            <Paper zdepth={1}>
+            <Paper>
               <BottomNavigation>
                 <BottomNavigationItem label="Account" icon={accountCircle} />
                 <BottomNavigationItem label="Blog" icon={blog} />
