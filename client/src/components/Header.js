@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import logo from '../assets/logo.jpg'
 import '../App.css'
 import FlatButton from 'material-ui/FlatButton'
@@ -6,13 +6,9 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar'
 import Responsive from 'react-responsive'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const buttonStyle = {
-  color: '#2c9ee7',
-  fontSize: 20
-}
-
-export default class ToolbarExamplesSimple extends React.Component {
+class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,6 +18,17 @@ export default class ToolbarExamplesSimple extends React.Component {
 
   handleChange = (event, index, value) => this.setState({ value })
 
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return 'still deciding'
+      case false:
+        return 'loggedout'
+      default:
+        return 'loggedin'
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -30,7 +37,7 @@ export default class ToolbarExamplesSimple extends React.Component {
         </div>
         <div>
           <Toolbar>
-            <ToolbarTitle text="Peels & Wheels" />
+            <ToolbarTitle text={this.renderContent()} />
             <ToolbarGroup firstChild={true}>
               <FlatButton
                 containerElement={<Link to="/" />}
@@ -52,7 +59,13 @@ export default class ToolbarExamplesSimple extends React.Component {
             <ToolbarGroup />
           </Toolbar>
         </div>
+        {this.renderContent}
       </div>
     )
   }
 }
+function mapStateToProps({ auth }) {
+  return { auth }
+}
+
+export default connect(mapStateToProps)(Header)

@@ -1,19 +1,9 @@
 import React, { Component } from 'react'
 import '../App.css'
-import FlatButton from 'material-ui/FlatButton'
 import Paper from 'material-ui/Paper'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
-import FontIcon from 'material-ui/FontIcon'
 import RaisedButton from 'material-ui/RaisedButton'
-import {
-  BottomNavigation,
-  BottomNavigationItem
-} from 'material-ui/BottomNavigation'
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on'
-import IconContactMail from 'material-ui/svg-icons/communication/contact-mail'
-import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle'
-import ContentGesture from 'material-ui/svg-icons/content/gesture'
 import Responsive from 'react-responsive'
 
 const Default = ({ children }) =>
@@ -21,22 +11,12 @@ const Default = ({ children }) =>
 const Mobile = ({ children }) =>
   <Responsive maxWidth={500} children={children} />
 
-const nearbyIcon = <IconLocationOn />
-const accountCircle = <ActionAccountCircle />
-const contact = <IconContactMail />
-const blog = <ContentGesture />
-
 const paperStyle1 = {
   backgroundColor: 'rgba(255, 255, 255, 0.75)',
   marginLeft: 50,
   marginRight: 0,
   width: 400,
   display: 'flex'
-}
-
-const buttonStyle = {
-  color: '#2c9ee7',
-  fontSize: 20
 }
 
 class Home extends Component {
