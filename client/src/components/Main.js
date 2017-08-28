@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import SignUp from "./SignUp";
+import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import Home from './Home'
+import SignUp from './SignUp'
 
 class Main extends Component {
   render() {
@@ -14,8 +14,8 @@ class Main extends Component {
           <Route path='/service' component={Service}/> */}
         </Switch>
       </main>
-    );
+    )
   }
 }
 
-export default Main;
+export default Main
