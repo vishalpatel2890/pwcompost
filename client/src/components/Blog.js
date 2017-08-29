@@ -1,0 +1,52 @@
+import React, { Component } from 'react'
+import '../App.css'
+import Paper from 'material-ui/Paper'
+import {
+  BottomNavigation,
+  BottomNavigationItem
+} from 'material-ui/BottomNavigation'
+import IconContactMail from 'material-ui/svg-icons/communication/contact-mail'
+import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle'
+import ContentGesture from 'material-ui/svg-icons/content/gesture'
+import Responsive from 'react-responsive'
+
+const Default = ({ children }) =>
+  <Responsive minWidth={500} children={children} />
+const Mobile = ({ children }) =>
+  <Responsive maxWidth={500} children={children} />
+
+const accountCircle = <ActionAccountCircle />
+const contact = <IconContactMail />
+const blog = <ContentGesture />
+
+class Blog extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { open: false }
+  }
+
+  handleToggle = () => this.setState({ open: !this.state.open })
+  handleClose = () => this.setState({ open: false })
+
+  render() {
+    return (
+      <div>
+        <Default>
+          <div>
+            <Paper>
+              <BottomNavigation>
+                <BottomNavigationItem label="Blog" icon={accountCircle} />
+                <BottomNavigationItem label="Blog" icon={blog} />
+                <BottomNavigationItem label="Contact Us" icon={contact} />
+              </BottomNavigation>
+            </Paper>
+          </div>
+        </Default>
+
+        <Mobile />
+      </div>
+    )
+  }
+}
+
+export default Blog
