@@ -5,6 +5,7 @@ import Footer from './Footer'
 import '../App.css'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
+import { withRouter } from 'react-router-dom'
 
 class App extends Component {
   componentDidMount() {
@@ -28,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App)
+export default withRouter(connect(null, actions)(App))

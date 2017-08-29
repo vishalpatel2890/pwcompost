@@ -10,12 +10,18 @@ module.exports = app => {
   )
 
   //google redirect after auth
-  app.get('/auth/google/callback', passport.authenticate('google'))
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/dashboard')
+    }
+  )
 
   //logout
   app.get('/api/logout', (req, res) => {
     req.logout()
-    res.send(req.user)
+    res.redirect('/')
   })
 
   //check current user
