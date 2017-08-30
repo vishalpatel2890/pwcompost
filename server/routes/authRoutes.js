@@ -12,10 +12,12 @@ module.exports = app => {
   //google redirect after auth
   app.get(
     '/auth/google/callback',
-    passport.authenticate('google'),
-    (req, res) => {
-      res.redirect('/dashboard')
-    }
+    passport.authenticate('google')
+
+    // (req, res) => {
+    // res.redirect('/dashboard')
+
+    // }
   )
 
   //logout
