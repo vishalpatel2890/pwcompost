@@ -24,6 +24,7 @@ app.use(passport.session())
 
 //require/bundle routes
 require('./routes/authRoutes')(app)
+require('./routes/blogRoutes')(app)
 
 const PORT = process.env.PORT || 5001
 app.listen(PORT)
