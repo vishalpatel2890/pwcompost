@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
 const keys = require('./config/keys')
-require('./models/User')
+require('./models/user')
+require('./models/blog')
 require('./config/passport')
 
 mongoose.Promise = global.Promise
