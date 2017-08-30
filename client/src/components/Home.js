@@ -44,24 +44,7 @@ class Home extends Component {
               </div>
               <div className="content-cell2">
                 <Paper style={paperStyle1} zDepth={2}>
-                  Content This is mobile! This is mobile! This is mobile! This
-                  is mobile! This is mobile! This is mobile! This is mobile!
-                  <br />
-                  This is mobile! This is mobile!
-                  <br />
-                  This is mobile!
-                  <br />
-                  This is mobile!
-                  <br />
-                  This is mobile!
-                  <br />
-                  This is mobile!
-                  <br />
-                  This is mobile!
-                  <br />
-                  This is mobile!
-                  <br />
-                  This is mobile!
+                  Content Box
                   <br />
                 </Paper>
                 <br />
@@ -72,31 +55,7 @@ class Home extends Component {
           <div />
         </Default>
 
-        <Mobile>
-          <div>
-            <RaisedButton
-              label="Menu"
-              labelColor="#2c9ee7"
-              onClick={this.handleToggle}
-              hoverStyle="#7aca45"
-            />
-            <Drawer
-              docked={false}
-              width={200}
-              open={this.state.open}
-              onRequestChange={open => this.setState({ open })}
-            >
-              <MenuItem onClick={this.handleClose}>Menu Item</MenuItem>
-              <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
-            </Drawer>
-            <Paper style={paperStyle1} zDepth={2}>
-              This is mobile! This is mobile! This is mobile! This is mobile!
-              This is mobile! This is mobile! This is mobile!
-            </Paper>
-            <br />
-            <br />
-          </div>
-        </Mobile>
+        <Mobile />
       </div>
     )
   }

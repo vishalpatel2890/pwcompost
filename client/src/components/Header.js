@@ -22,7 +22,6 @@ class Header extends Component {
       case false:
         return <HeaderOut />
       default:
-        console.log(this.props.auth.googleId)
         return <HeaderIn />
     }
   }

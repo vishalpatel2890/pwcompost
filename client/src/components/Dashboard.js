@@ -20,14 +20,6 @@ const contact = <IconContactMail />
 const blog = <ContentGesture />
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { open: false }
-  }
-
-  handleToggle = () => this.setState({ open: !this.state.open })
-  handleClose = () => this.setState({ open: false })
-
   render() {
     return (
       <div>
