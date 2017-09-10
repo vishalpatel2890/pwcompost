@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
-import SignUp from './SignUp'
+import SignUp from './SignUp/SignUp'
 import Dashboard from './Dashboard'
 import Blog from './Blog'
 
