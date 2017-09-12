@@ -6,23 +6,7 @@ import Responsive from 'react-responsive'
 import RaisedButton from 'material-ui/RaisedButton'
 import SignUpField from './SignUpField'
 import { Link } from 'react-router-dom'
-
-const FIELDS = [
-  {
-    label: 'Name',
-    name: 'firstname',
-    type: 'text'
-  },
-  {
-    label: 'Last Name',
-    name: 'lastName',
-    type: 'text'
-  },
-  { label: 'Address', name: 'address', type: 'text' },
-  { label: 'City', name: 'city', type: 'text' },
-  { label: 'State', name: 'state', type: 'text' },
-  { label: 'ZipCode', name: 'zipcode', type: 'text' }
-]
+import { required, zipCode } from './validate'
 
 const Default = ({ children }) =>
   <Responsive minWidth={500} children={children} />
@@ -31,18 +15,52 @@ const Mobile = ({ children }) =>
 
 class SignUpPage1 extends Component {
   renderFields() {
-    return _.map(FIELDS, ({ label, name, type, component }) => {
-      return (
-        <div key={name}>
-          <Field
-            component={SignUpField}
-            type={type}
-            label={label}
-            name={name}
-          />
-        </div>
-      )
-    })
+    return (
+      <div>
+        <Field
+          component={SignUpField}
+          type="text"
+          label="First Name"
+          name="firstName"
+          validate={required}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="Last Name"
+          name="lastName"
+          validate={required}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="Address"
+          name="address"
+          validate={required}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="City"
+          name="city"
+          validate={required}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="State"
+          name="state"
+          validate={required}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="ZipCode"
+          name="zipcode"
+          validate={[required, zipCode]}
+        />
+      </div>
+    )
   }
   render() {
     return (
@@ -67,19 +85,8 @@ class SignUpPage1 extends Component {
   }
 }
 
-function validate(values) {
-  const errors = {}
-
-  if (!values.firstname) {
-    errors.firstname = 'You must provide a name'
-  }
-
-  return errors
-}
-
 export default reduxForm({
   form: 'signupForm',
   destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,
-  validate
+  forceUnregisterOnUnmount: true
 })(SignUpPage1)

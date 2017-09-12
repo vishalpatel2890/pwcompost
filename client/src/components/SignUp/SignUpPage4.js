@@ -8,40 +8,47 @@ import RaisedButton from 'material-ui/RaisedButton'
 import SignUpField from './SignUpField'
 import { Link } from 'react-router-dom'
 import * as actions from '../../actions'
+import { required, number } from './validate'
 
 const Default = ({ children }) =>
   <Responsive minWidth={500} children={children} />
 const Mobile = ({ children }) =>
   <Responsive maxWidth={500} children={children} />
 
-const FIELDS = [
-  { label: '# of adults in the household', name: 'adultno' },
-  { label: '# of children in the household', name: 'childrenno' },
-  {
-    label: 'Where can we pick up your compost bin?',
-    name: 'pickup'
-  },
-  {
-    label:
-      'Would you like finished compost back, or would like to donate it to New Haven Farms?',
-    name: 'donate'
-  }
-]
-
 class SignUpPage4 extends Component {
   renderFields() {
-    return _.map(FIELDS, ({ label, name, type, component }) => {
-      return (
-        <div key={name}>
-          <Field
-            component={SignUpField}
-            type={type}
-            label={label}
-            name={name}
-          />
-        </div>
-      )
-    })
+    return (
+      <div>
+        <Field
+          component={SignUpField}
+          type="text"
+          label="# of adults in the household"
+          name="adultno"
+          validate={number}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="# of children in the household"
+          name="childno"
+          validate={[required, number]}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="Where can we pick up your bin?"
+          name="binloc"
+          validate={[required, number]}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="Would you like finished compost back, or would like to donate it to New Haven Farms?"
+          name="donate"
+          validate={required}
+        />
+      </div>
+    )
   }
   render() {
     const { formValues, submitUser } = this.props

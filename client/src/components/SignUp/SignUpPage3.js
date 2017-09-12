@@ -61,18 +61,7 @@ class SignUpPage3 extends Component {
   }
 }
 
-function validate(values) {
-  const errors = {}
-
-  if (!values.name) {
-    errors.name = 'You must provide a name'
-  }
-
-  return errors
-}
-
 export default reduxForm({
-  validate,
   form: 'signupForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true

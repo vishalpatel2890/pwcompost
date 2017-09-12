@@ -6,12 +6,7 @@ import Responsive from 'react-responsive'
 import RaisedButton from 'material-ui/RaisedButton'
 import SignUpField from './SignUpField'
 import { Link } from 'react-router-dom'
-
-const FIELDS = [
-  { label: 'Neighborhood', name: 'neighborhood', type: 'radio' },
-  { label: 'If Other Please Indicate', name: 'otherneighbor', type: 'radio' },
-  { label: 'Phone Number', name: 'phone' }
-]
+import { required, phoneNumber } from './validate'
 
 const Default = ({ children }) =>
   <Responsive minWidth={500} children={children} />
@@ -20,18 +15,31 @@ const Mobile = ({ children }) =>
 
 class SignUpPage2 extends Component {
   renderFields() {
-    return _.map(FIELDS, ({ label, name, type, component }) => {
-      return (
-        <div key={name}>
-          <Field
-            component={SignUpField}
-            type={type}
-            label={label}
-            name={name}
-          />
-        </div>
-      )
-    })
+    return (
+      <div>
+        <Field
+          component={SignUpField}
+          type="text"
+          label="Neighborhood"
+          name="neighborhood"
+          validate={required}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="If Other Please Indicate"
+          name="other"
+          validate={[required]}
+        />
+        <Field
+          component={SignUpField}
+          type="text"
+          label="Phone Number"
+          name="phone"
+          validate={[required, phoneNumber]}
+        />
+      </div>
+    )
   }
   render() {
     return (
@@ -62,18 +70,7 @@ class SignUpPage2 extends Component {
   }
 }
 
-function validate(values) {
-  const errors = {}
-
-  if (!values.name) {
-    errors.name = 'You must provide a name'
-  }
-
-  return errors
-}
-
 export default reduxForm({
-  validate,
   form: 'signupForm',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true
