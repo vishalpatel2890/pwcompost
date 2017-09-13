@@ -6,6 +6,8 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data })
 }
 
-export const submitUser = values => {
-  return { type: 'submit_user' }
+export const submitUser = (values, history) => async dispatch => {
+  const res = await axios.post('/api/service', values)
+
+  history.push('/dashboard')
 }

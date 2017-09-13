@@ -28,8 +28,7 @@ class SignUpPage2 extends Component {
           component={SignUpField}
           type="text"
           label="If Other Please Indicate"
-          name="other"
-          validate={[required]}
+          name="othernhood"
         />
         <Field
           component={SignUpField}

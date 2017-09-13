@@ -9,6 +9,7 @@ import SignUpField from './SignUpField'
 import { Link } from 'react-router-dom'
 import * as actions from '../../actions'
 import { required, number } from './validate'
+import { withRouter } from 'react-router-dom'
 
 const Default = ({ children }) =>
   <Responsive minWidth={500} children={children} />
@@ -38,7 +39,7 @@ class SignUpPage4 extends Component {
           type="text"
           label="Where can we pick up your bin?"
           name="binloc"
-          validate={[required, number]}
+          validate={[required]}
         />
         <Field
           component={SignUpField}
@@ -51,7 +52,7 @@ class SignUpPage4 extends Component {
     )
   }
   render() {
-    const { formValues, submitUser } = this.props
+    const { formValues, submitUser, history } = this.props
     return (
       <div className="App">
         <Default>
@@ -73,6 +74,7 @@ class SignUpPage4 extends Component {
                 label="Submit"
                 backgroundColor="#59083d"
                 labelColor="#ffffff"
+                onClick={() => submitUser(formValues, history)}
               />
             </form>
           </div>
@@ -103,6 +105,6 @@ SignUpPage4 = reduxForm({
   forceUnregisterOnUnmount: true
 })(SignUpPage4)
 
-SignUpPage4 = connect(mapStateToProps, actions)(SignUpPage4)
+SignUpPage4 = connect(mapStateToProps, actions)(withRouter(SignUpPage4))
 
 export default SignUpPage4
