@@ -10,6 +10,12 @@ import { Link } from 'react-router-dom'
 import * as actions from '../../actions'
 import { required, number } from './validate'
 import { withRouter } from 'react-router-dom'
+import { RadioButton } from 'material-ui/RadioButton'
+import SignUpRadioField from './SignUpRadioField'
+import ActionFavorite from 'material-ui/svg-icons/action/favorite'
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border'
+import HourGlassEmpty from 'material-ui/svg-icons/action/hourglass-empty'
+import HourGlassFull from 'material-ui/svg-icons/action/hourglass-full'
 
 const Default = ({ children }) =>
   <Responsive minWidth={500} children={children} />
@@ -41,13 +47,16 @@ class SignUpPage4 extends Component {
           name="binloc"
           validate={[required]}
         />
-        <Field
-          component={SignUpField}
-          type="text"
-          label="Would you like finished compost back, or would like to donate it to New Haven Farms?"
-          name="donate"
-          validate={required}
-        />
+
+        <h4>
+          Would you like finished compost back, or would like to donate it to
+          New Haven Farms?
+        </h4>
+        <Field name="donate" component={SignUpRadioField} validate={required}>
+          <RadioButton value="true" label="no" />
+          <RadioButton value="false" label="yes" />
+        </Field>
+        <br />
       </div>
     )
   }

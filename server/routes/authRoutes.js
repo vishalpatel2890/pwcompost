@@ -43,6 +43,8 @@ module.exports = app => {
       phone,
       referral,
       referralname,
+      adultno,
+      childno,
       binloc,
       donate
     } = req.body
@@ -58,6 +60,8 @@ module.exports = app => {
         phone,
         referral,
         referralname,
+        adultno,
+        childno,
         binloc,
         donate
       }

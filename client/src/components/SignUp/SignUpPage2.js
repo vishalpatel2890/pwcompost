@@ -5,8 +5,10 @@ import { reduxForm, Field } from 'redux-form'
 import Responsive from 'react-responsive'
 import RaisedButton from 'material-ui/RaisedButton'
 import SignUpField from './SignUpField'
+import SignUpSelectField from './SignUpSelectField'
 import { Link } from 'react-router-dom'
 import { required, phoneNumber } from './validate'
+import MenuItem from 'material-ui/MenuItem'
 
 const Default = ({ children }) =>
   <Responsive minWidth={500} children={children} />
@@ -18,12 +20,20 @@ class SignUpPage2 extends Component {
     return (
       <div>
         <Field
-          component={SignUpField}
+          component={SignUpSelectField}
           type="text"
           label="Neighborhood"
           name="neighborhood"
           validate={required}
-        />
+        >
+          <MenuItem value="East Rock" primaryText="East Rock" />
+          <MenuItem value="Prospect Hill" primaryText="Prospect" />
+          <MenuItem value="Wooster Square" primaryText="Wooster Square" />
+          <MenuItem value="Fair Haven" primaryText="Fair Haven" />
+          <MenuItem value="Downtown" primaryText="Downtown New Haven" />
+          <MenuItem value="Westville" primaryText="Westville" />
+          <MenuItem value="Other" primaryText="Other" />
+        </Field>
         <Field
           component={SignUpField}
           type="text"
