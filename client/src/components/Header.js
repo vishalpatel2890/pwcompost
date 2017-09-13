@@ -6,15 +6,6 @@ import HeaderIn from './HeaderIn'
 import HeaderOut from './HeaderOut'
 
 class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: 3
-    }
-  }
-
-  handleChange = (event, index, value) => this.setState({ value })
-
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -27,6 +18,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.props.auth)
     return (
       <div>
         {this.renderContent()}

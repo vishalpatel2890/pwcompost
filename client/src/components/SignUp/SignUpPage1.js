@@ -20,20 +20,6 @@ class SignUpPage1 extends Component {
         <Field
           component={SignUpField}
           type="text"
-          label="First Name"
-          name="firstName"
-          validate={required}
-        />
-        <Field
-          component={SignUpField}
-          type="text"
-          label="Last Name"
-          name="lastName"
-          validate={required}
-        />
-        <Field
-          component={SignUpField}
-          type="text"
           label="Address"
           name="address"
           validate={required}
