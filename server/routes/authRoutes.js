@@ -1,5 +1,6 @@
 const passport = require('passport')
 const mongoose = require('mongoose')
+const requireLogin = require('../middlewares/requireLogin')
 const User = mongoose.model('users')
 
 module.exports = app => {
@@ -31,9 +32,37 @@ module.exports = app => {
     res.send(req.user)
   })
 
-  app.post('/api/service', async (req, res) => {
+  app.post('/api/service', requireLogin, async (req, res) => {
+    const {
+      address,
+      city,
+      state,
+      zipcode,
+      neighborhood,
+      othernhood,
+      phone,
+      referral,
+      referralname,
+      binloc,
+      donate
+    } = req.body
     try {
-      await User.update()
+      query = { _id: req.user.id }
+      update = {
+        address,
+        city,
+        state,
+        zipcode,
+        neighborhood,
+        othernhood,
+        phone,
+        referral,
+        referralname,
+        binloc,
+        donate
+      }
+
+      await User.update(query, update, { multi: true })
       res.send('User is saved')
     } catch (err) {
       res.status(422).send(err)
