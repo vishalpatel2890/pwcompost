@@ -25,6 +25,24 @@ module.exports = app => {
     }
   )
 
+  //process login form
+  app.post(
+    '/email-login',
+    passport.authenticate('local-login', {
+      successRedirect: '/dashboard',
+      failureRedirect: '/email-login',
+      failureFlash: true
+    })
+  )
+
+  app.post(
+    '/email-signup',
+    passport.authenticate('local-signup'),
+    (req, res) => {
+      res.send('Whatsup')
+    }
+  )
+
   //logout
   app.get('/api/logout', (req, res) => {
     req.logout()
@@ -36,6 +54,7 @@ module.exports = app => {
     res.send(req.user)
   })
 
+  //post service form to user document
   app.post('/api/service', requireLogin, async (req, res) => {
     const {
       address,

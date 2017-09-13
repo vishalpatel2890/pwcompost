@@ -4,6 +4,8 @@ const cookieSession = require('cookie-session')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const keys = require('./config/keys')
+const flash = require('connect-flash')
+
 require('./models/user')
 require('./models/blog')
 require('./config/passport')
@@ -23,6 +25,7 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
 
 //require/bundle routes
 require('./routes/authRoutes')(app)
