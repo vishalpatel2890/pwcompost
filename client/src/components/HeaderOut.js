@@ -64,8 +64,8 @@ class HeaderOut extends Component {
                     containerElement={<Link to="/signup" />}
                   />
                   <RaisedButton
-                    label="Sign Up"
-                    containerElement={<Link to="/signup" />}
+                    label="Create Account"
+                    containerElement={<Link to="/createaccount" />}
                   />
                 </ToolbarGroup>
 
