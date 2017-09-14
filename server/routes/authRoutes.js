@@ -37,10 +37,11 @@ module.exports = app => {
 
   app.post(
     '/email-signup',
-    passport.authenticate('local-signup'),
-    (req, res) => {
-      res.send('Whatsup')
-    }
+    passport.authenticate('local-signup', {
+      successRedirect: '/dashboard',
+      failureRedirect: '/email-login',
+      failureFlash: true
+    })
   )
 
   //logout
